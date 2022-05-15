@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The World Tour</title>
+
+  <!-- JQuery -->
+  <script src="./js/ext/jquery-3.6.0.min.js"></script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+  <!-- Style Sheets -->
+  <link rel="stylesheet" type="text/css" href="./css/map.css" />
+  <link rel="stylesheet" type="text/css" href="./css/header.css" />
+  <link rel="stylesheet" type="text/css" href="./css/style.css" />
+  <link rel="stylesheet" type="text/css" href="./css/shop-accordion.css" />
+  <link rel="stylesheet" type="text/css" href="./css/review.css" />
+
+  <link href="https://fonts.googleapis.com/css?family=Caveat" rel="stylesheet">
+
+  <script src="./js/map.js"></script>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="menu">
+      <div class="title">
+        The World Tour
+      </div>
+      <div class="navi">
+        <ul>
+          <li id="magic"><a>MagicKingdom</a></li>
+          <li id="epcot"><a>Epcot</a></li>
+          <li id="animal"><a>AnimalKingdom</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- API Dev Mode の警告 -->
+    <p class="text-warn" style="text-align: left;">
+      ※現在 Develop Mode でAPIを取得しているため、ストリートビュー及びレビューの表示は開発用の表示になっています。<br>
+      お手数をおかけして申し訳ございません。
+    </p>
+  </header>
+
+
+  <!-- Street View -->
+  <div id="map"></div>
+  <!-- テスト用 -->
+  <!-- <div id="map--debug">ストリートビュー表示エリア</div> -->
+
+  <div class="bottom-area">
+    <h1 id="bottom-area-title">MagicKingdom</h1>
+
+    <div class="bottom-area-flex">
+
+      <!-- 店舗選択アコーディオンメニューエリア  -->
+      <div class="shop-accordion">
+
+        <div class="acd-parent restaurant">レストラン・フード・ドリンク</div>
+        <ul></ul>
+        <div class="acd-parent attraction">アトラクション・テーマパーク・博物館</div>
+        <ul></ul>
+
+      </div>
+      <!--  -->
+
+      <!-- レビュー表示エリア -->
+      <div class="review-area">
+
+        <h2 class="review-shop-name"></h2>
+        <div class="sq-btn-area">
+          <div class="btn--sq-arrow shop-geoloc-btn">
+            <p id="move-geoloc-btn">マップで施設を見る</p>
+            <input type="hidden" id="shop-geoloc-lat" value="">
+            <input type="hidden" id="shop-geoloc-lng" value="">
+          </div>
+          <div class="btn--sq-arrow back-geoloc-btn disabled">
+            <p id="back-geoloc-btn">元の地点に戻る</p>
+            <input type="hidden" id="save-geoloc-lat" value="">
+            <input type="hidden" id="save-geoloc-lng" value="">
+            <input type="hidden" id="save-geoloc-heading" value="">
+            <input type="hidden" id="save-geoloc-pitch" value="">
+            <input type="hidden" id="save-geoloc-zoom" value="">
+          </div>
+        </div>
+
+        <div id="js-review-box">
+          <div class="review-box-title">評価の高いクチコミ</div>
+          <!-- <section id="js-review-grid"></section> -->
+          <!-- API Dev Mode の警告 -->
+          <p class="text-warn">現在 Develop Mode でAPIを取得しているため、レビューが表示できません。</p>
+        </div>
+
+      </div>
+      <!--  -->
+    </div>
+
+  </div>
+
+  </div>
+
+  <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBPF7pryoPT14gVwBPLmXPMMNbdEqGIzU&callback=initMap&libraries=&v=weekly"
+    async></script>
+
+  <!-- レビュー取得スクリプト -->
+  <script src="./js/shop-accordion.js"></script>
+  <script src="./js/review.js"></script>
+
+</body>
+
+</html>

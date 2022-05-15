@@ -1,0 +1,131 @@
+@import "variables";
+@import "media-query";
+
+.review-area {
+    width: 100%;
+}
+
+.review-shop-name {
+    position: relative;
+    padding: 1rem .5rem;
+
+    margin-top: 0;
+    margin-bottom: 15px;
+    line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	-webkit-text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+}
+  
+.review-shop-name:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    content: '';
+    border-radius: 3px;
+    background-image: -webkit-linear-gradient(right, #2af598 0%, #009efd 100%);
+    background-image: linear-gradient(to left, #2af598 0%, #009efd 100%);
+  }
+
+/* レビューボックス */
+#js-review-box {
+    position: relative;
+    // width: 540px;
+    // max-width: 540px;
+    // min-width: 540px;
+    height: 500px;
+
+    margin: 2em 0;
+    padding: 1em;
+    background-color: #e3f2fd;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.4);
+    letter-spacing: .3px;
+}
+
+/* レビューボックスのタイトル */
+.review-box-title {
+    position: absolute;
+    display: inline-block;
+    padding: 4px 6px;
+    top: -11px;
+    left: 10px;
+
+    color: rgb(255, 255, 255);
+    line-height: 1;
+    letter-spacing: 2px;
+    font-size: 1.4em;
+    font-weight: bold;
+    text-align: center;
+    text-shadow:
+    1px 0  3px  rgba(0, 0, 0, 0.4),
+    0 1px  3px  rgba(0, 0, 0, 0.4),
+    -1px 0 3px rgba(0, 0, 0, 0.4),
+    0 -1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* レビューをまとめるdiv要素 */
+#js-review-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    overflow: scroll;
+    overflow-x: hidden;
+    height: inherit;
+}
+
+
+/***************************************************
+/*  レビューの装飾
+/***************************************************/
+
+
+/* レビューフレーム全体 */
+.review-content {
+    border: 1px solid #bff2ff;
+    background-color: #f2ffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    list-style: none;
+    width: 473px;
+    max-width: 473px;
+    min-width: 473px;
+    height: 260px;
+    margin: 10px;
+    padding: 15px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.review-content:hover {
+    /* transform: scale(1.05); */
+    /* cursor: pointer; */
+}
+
+
+/* 星 */
+.review-content .rate {
+    margin: 0;
+    color: rgb(255, 228, 75);
+    letter-spacing: 3px;
+    text-shadow: 1px 0 0 rgb(255, 170, 72), 0 1px 0 rgb(255, 170, 72), -1px 0 0 rgb(255, 170, 72), 0 -1px 0 rgb(255, 170, 72)
+}
+
+
+/* 名前 */
+.review-content .name {
+    margin: 5px 0;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* コメント */
+.review-content .text {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+}

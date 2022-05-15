@@ -1,0 +1,138 @@
+// @import "variables";
+@import "media-query";
+
+.text-warn {
+    font-size: .8rem;
+
+    padding: 12px;
+
+    text-align: center;
+
+    color: red;
+}
+
+h1 {
+    font-family: "Caveat", cursive;
+    font-weight: lighter;
+
+    position: relative;
+
+    padding: .2em .5em;
+
+    color: white;
+    background: linear-gradient(to right, #6fa9ff, #94ffe4);
+    box-shadow: 0 0 4px #0000008f;
+}
+
+.bottom-area {
+    font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", "メイリオ", sans-serif;
+
+    margin: 10px 0;
+
+    @include mq-up(md) {
+        padding: 0 30px;
+    }
+    @include mq-down(md) {
+        padding: 0 10px;
+    }
+}
+
+.bottom-area-flex {
+    display: flex;
+
+    @include mq-up(lg) {
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    @include mq-down(lg) {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+.sq-btn-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    padding: 0 30px;
+
+    @include mq-up(sm) {
+        & > * + * {
+            // padding-left: 12px;
+        }
+    }
+}
+
+/* ============================================= */
+/*  青四角ボタン
+/* ============================================= */
+div.btn--sq-arrow {
+    min-width: 200px;
+    max-width: 200px;
+    margin: 0 auto;
+}
+.btn--sq-arrow p {
+    font-size: 16px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    padding: 0 6% 0 12%;
+
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    transition-duration: .2s;
+    text-align: left;
+    text-decoration: none;
+
+    color: #228bc8;
+    border: 1px solid #228bc8;
+    background: #ffffff;
+}
+.btn--sq-arrow p:hover {
+    cursor: pointer;
+
+    color: #ffffff;
+    background: #228bc8;
+}
+.btn--sq-arrow p:before {
+    position: absolute;
+    top: 50%;
+    left: 6%;
+
+    display: inline-block;
+
+    width: 0;
+    height: 0;
+    margin-top: -7px;
+
+    content: "";
+
+    border-width: 7px 0 7px 8px;
+    border-style: solid;
+    border-color: transparent transparent transparent #228bc8;
+}
+.btn--sq-arrow p:hover:before {
+    border-color: transparent transparent transparent #ffffff;
+}
+/* 無効化レイアウト */
+.btn--sq-arrow.disabled p {
+    pointer-events: none;
+
+    color: #c7c9ca;
+    border: none;
+    background: rgb(138, 138, 138);
+}
+.btn--sq-arrow.disabled p:before {
+    border-color: transparent transparent transparent #c7c9ca;
+}

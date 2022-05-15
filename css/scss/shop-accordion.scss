@@ -1,0 +1,129 @@
+@import "variables";
+@import "media-query";
+$color-main: #4897d6;
+$color-main-hover: #60a5dd;
+$color-sub: #78b9ee;
+$color-sub-hover: #96d0ff;
+$color-sub-open: #96d0ff;
+$color-text: white;
+$color-text2: #333333;
+
+.shop-accordion {
+    position: relative;
+
+    width: 100%;
+    max-width: 500px;
+    margin-right: 10px;
+}
+
+div.acd-parent + ul {
+    display: none;
+
+    margin: 0;
+    padding-left: 0;
+}
+
+/* 大項目 */
+div.acd-parent {
+    display: block;
+    overflow: hidden;
+
+    margin-bottom: 1px;
+    padding: 10px;
+
+    cursor: pointer;
+    user-select: none;
+    transition: .3s;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    color: $color-text;
+    background: $color-main;
+
+    &:hover {
+        background: $color-main-hover;
+    }
+}
+
+/* 中項目テキスト */
+li.acd-child > div {
+    position: relative;
+
+    user-select: none;
+
+    color: $color-text2;
+
+    // クリック範囲の拡大
+    &::after {
+        position: absolute;
+        top: -10px;
+        right: 0;
+        bottom: -10px;
+        left: 0;
+
+        content: "";
+    }
+}
+
+/* 中項目リスト要素 */
+li.acd-child {
+    padding: 10px;
+
+    list-style: none;
+
+    cursor: pointer;
+    user-select: none;
+    transition: .15s;
+
+    background: $color-sub;
+
+    &.open {
+        transition: .15s;
+
+        background: $color-sub-open;
+    }
+
+    &:hover {
+        background: $color-sub-hover;
+    }
+}
+
+/* 小項目 */
+li.acd-child > ul > li.acd-content {
+    padding: 5px 0;
+
+    cursor: pointer;
+    transition: .15s;
+
+    &:hover {
+        transform: translateX(3px);
+
+        color: tomato;
+    }
+}
+
+/* 小項目リスト要素 */
+li.acd-child > ul {
+    display: none;
+
+    padding-top: 20px;
+    padding-left: 20px;
+
+    list-style: none;
+}
+
+li.acd-content {
+    font-size: 15px;
+    font-weight: bold;
+
+    position: relative;
+
+    overflow: hidden;
+
+    line-height: 30px;
+    margin: 7px 0 7px 0;
+    padding: 0 0 0 20px;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
